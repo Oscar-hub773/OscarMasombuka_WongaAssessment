@@ -35,7 +35,7 @@ function RegisterPage() {
   return (
     <div className="container">
       <div className="card">
-              <h2>Register</h2>
+              <h5 className="text-muted text-center mb-4">Register</h5>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -59,6 +59,8 @@ function RegisterPage() {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
+          pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
+          title="Please enter a valid email address (e.g. user@example.com)"
           required
         />
         <input
@@ -67,6 +69,8 @@ function RegisterPage() {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
+          pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+          title="Password must be at least 8 characters, include one uppercase letter, one number, and one special character."
           required
         />
         <button type="submit">Register</button>

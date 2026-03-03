@@ -46,7 +46,7 @@ function UserPage() {
 return (
   <div className="container">
     <div className="card">
-      <h2>User Details</h2>
+      <h5 className="text-muted">User Details</h5>
 
       <p><strong>First Name:</strong> {user.firstName}</p>
       <p><strong>Last Name:</strong> {user.lastName}</p>

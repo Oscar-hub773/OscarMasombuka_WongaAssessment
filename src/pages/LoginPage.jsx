@@ -24,9 +24,10 @@ function LoginPage() {
 };
 
   return (
+    
     <div className="container">
       <div className="card">
-        <h2>Login</h2>
+        <h5 className="text-muted text-center mb-4">Login</h5>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
