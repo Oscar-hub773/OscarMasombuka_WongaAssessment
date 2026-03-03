@@ -1,0 +1,6 @@
+@WongaAssessment.API_HostAddress = http://localhost:5296
+
+GET {{WongaAssessment.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
