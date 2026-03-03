@@ -33,9 +33,9 @@ function RegisterPage() {
 };
 
   return (
-    <div>
-      <h2>Register</h2>
-
+    <div className="container">
+      <div className="card">
+              <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -45,7 +45,6 @@ function RegisterPage() {
           onChange={handleChange}
           required
         />
-
         <input
           type="text"
           name="lastName"
@@ -54,7 +53,6 @@ function RegisterPage() {
           onChange={handleChange}
           required
         />
-
         <input
           type="email"
           name="email"
@@ -63,7 +61,6 @@ function RegisterPage() {
           onChange={handleChange}
           required
         />
-
         <input
           type="password"
           name="password"
@@ -72,9 +69,12 @@ function RegisterPage() {
           onChange={handleChange}
           required
         />
-
         <button type="submit">Register</button>
       </form>
+      <div className="link">
+        <a href="/">Already have an account? Login</a>
+      </div>
+      </div>
     </div>
   );
 }

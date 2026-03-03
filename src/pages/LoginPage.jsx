@@ -24,8 +24,9 @@ function LoginPage() {
 };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className="container">
+      <div className="card">
+        <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
@@ -45,6 +46,10 @@ function LoginPage() {
 
         <button type="submit">Login</button>
       </form>
+        <div className="link">
+        <a href="/register">Don't have an account? Register</a>
+      </div>
+      </div>
     </div>
   );
 }

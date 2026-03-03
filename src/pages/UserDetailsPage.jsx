@@ -43,16 +43,19 @@ function UserPage() {
     return <p>Loading user details...</p>;
   }
 
-  return (
-    <div>
+return (
+  <div className="container">
+    <div className="card">
       <h2>User Details</h2>
+
       <p><strong>First Name:</strong> {user.firstName}</p>
       <p><strong>Last Name:</strong> {user.lastName}</p>
       <p><strong>Email:</strong> {user.email}</p>
 
       <button onClick={handleLogout}>Logout</button>
     </div>
-  );
+  </div>
+);
 }
 
 export default UserPage;
