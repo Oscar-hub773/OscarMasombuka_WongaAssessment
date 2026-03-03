@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { registerUser } from "../services/authService";
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -19,31 +20,17 @@ function RegisterPage() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const response = await fetch(
-        "https://localhost:7147/api/Authentication/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Registration failed");
-      }
-
-      alert("Registration successful. Please login.");
-      navigate("/");
-    } catch (error) {
-      console.error(error);
-      alert("Registration failed. User may already exist.");
-    }
-  };
+  try {
+    await registerUser(formData);
+    alert("Registration successful. Please login.");
+    navigate("/");
+  } catch (error) {
+    console.error(error);
+    alert("Registration failed. User may already exist.");
+  }
+};
 
   return (
     <div>
