@@ -1,0 +1,36 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.dbmdl
+
+# Visual Studio
+.vs/
+*.vcxproj.user
+
+# Rider / JetBrains
+.idea/
+
+# Node / React
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+*.dockerignore
+
+# Test artifacts
+TestResults/
+coverage/
+
+# Environment files
+.env

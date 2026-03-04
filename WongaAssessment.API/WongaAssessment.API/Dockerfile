@@ -1,19 +1,18 @@
-# Stage 1 — Build
+# Build stage
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /app
+WORKDIR /src
 
-COPY *.csproj ./
-RUN dotnet restore
+COPY ["WongaAssessment.API/WongaAssessment.API.csproj", "WongaAssessment.API/"]
+RUN dotnet restore "WongaAssessment.API/WongaAssessment.API.csproj"
 
-COPY . ./
-RUN dotnet publish -c Release -o out
+COPY . .
+WORKDIR "/src/WongaAssessment.API"
+RUN dotnet publish -c Release -o /app/publish
 
-# Stage 2 — Runtime
+# Runtime stage
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 
-COPY --from=build /app/out ./
+COPY --from=build /app/publish .
 
-EXPOSE 8080
-
-ENTRYPOINT ["dotnet", "WongaAssessment.Api.dll"]
+ENTRYPOINT ["dotnet", "WongaAssessment.API.dll"]
