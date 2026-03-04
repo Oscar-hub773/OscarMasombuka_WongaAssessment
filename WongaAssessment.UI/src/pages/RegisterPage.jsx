@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../services/authService";
+import Swal from "sweetalert2";
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -24,11 +25,22 @@ function RegisterPage() {
 
   try {
     await registerUser(formData);
-    alert("Registration successful. Please login.");
+    
+    Swal.fire({
+    icon: "success",
+    title: "Registration Successful",
+    text: "You can now login with your credentials",
+    confirmButtonColor: "#3085d6"
+  });
     navigate("/");
   } catch (error) {
     console.error(error);
-    alert("Registration failed. User may already exist.");
+    Swal.fire({
+    icon: "error",
+    title: "Registration Failed",
+    text: "User may already exist",
+    confirmButtonColor: "#d33"
+  });
   }
 };
 

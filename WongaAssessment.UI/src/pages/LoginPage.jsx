@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { loginUser } from "../services/authService";
+import Swal from "sweetalert2";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -19,7 +20,13 @@ function LoginPage() {
     navigate("/user");
   } catch (error) {
     console.error(error);
-    alert("Invalid email or password");
+    
+    Swal.fire({
+    icon: "error",
+    title: "Login Failed",
+    text: "Invalid email or password",
+    confirmButtonColor: "#d33"
+  });
   }
 };
 
