@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { getCurrentUser } from "../services/authService";
 
 function UserPage() {
   const { token, logout } = useContext(AuthContext);
@@ -8,31 +9,17 @@ function UserPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const response = await fetch(
-          "https://localhost:7147/api/Users/GetCurrentUserDetails",
-          {
-            method: "GET",
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+  const fetchUser = async () => {
+    try {
+      const data = await getCurrentUser(token);
+      setUser(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch user details");
-        }
-
-        const data = await response.json();
-        setUser(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchUser();
-  }, [token]);
+  fetchUser();
+}, [token]);
 
   const handleLogout = () => {
     logout();
@@ -46,11 +33,10 @@ function UserPage() {
 return (
   <div className="container">
     <div className="card">
-      <h5 className="text-muted">User Details</h5>
-
-      <p><strong>First Name:</strong> {user.firstName}</p>
-      <p><strong>Last Name:</strong> {user.lastName}</p>
-      <p><strong>Email:</strong> {user.email}</p>
+      <h5 className="text-muted">User Details</h5><br></br>
+      <p className="text-muted"><strong>First Name:</strong> {user.firstName}</p>
+      <p className="text-muted"><strong>Last Name:</strong> {user.lastName}</p>
+      <p className="text-muted"><strong>Email:</strong> {user.email}</p>
 
       <button onClick={handleLogout}>Logout</button>
     </div>
