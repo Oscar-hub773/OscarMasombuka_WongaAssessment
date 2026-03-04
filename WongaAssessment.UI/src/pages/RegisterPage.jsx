@@ -81,7 +81,7 @@ function RegisterPage() {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
-          pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+          pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$"
           title="Password must be at least 8 characters, include one uppercase letter, one number, and one special character."
           required
         />
