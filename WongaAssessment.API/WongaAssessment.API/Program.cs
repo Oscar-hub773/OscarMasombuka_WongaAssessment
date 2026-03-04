@@ -52,7 +52,7 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 builder.Services.AddDbContext<ApplicationDbContext>(contextOptions =>
-contextOptions.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+contextOptions.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();

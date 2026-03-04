@@ -17,8 +17,8 @@ namespace WongaAssessment.API.Controllers
         }
 
         [Authorize]
-        [HttpGet("GetCurrentUserDetails")]
-        public async Task<IActionResult> GetCurrentUser()
+        [HttpGet("GetCurrentLoggedInUserDetails")]
+        public async Task<IActionResult> GetCurrentLoggedInUser()
         {
             var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
@@ -34,3 +34,4 @@ namespace WongaAssessment.API.Controllers
         }
     }
 }
+

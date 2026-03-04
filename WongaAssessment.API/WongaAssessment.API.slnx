@@ -2,5 +2,6 @@
   <Folder Name="/Solution Items/">
     <File Path="docker-compose.yml" />
   </Folder>
+  <Project Path="../WongaAssessment.Tests/WongaAssessment.Tests.csproj" Id="48e314f3-0fa1-4277-ad8b-ab1e4f691e22" />
   <Project Path="WongaAssessment.API/WongaAssessment.API.csproj" />
 </Solution>
