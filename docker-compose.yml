@@ -17,7 +17,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: WongaAssessment.API/Dockerfile
+      dockerfile: WongaAssessment.API/WongaAssessment.API/Dockerfile
     container_name: wongaassessment-api
     depends_on:
       postgres:
