@@ -1,7 +1,4 @@
-version: '3.8'
-
 services:
-
   postgres:
     image: postgres:15
     container_name: wonga-postgres
@@ -11,20 +8,13 @@ services:
       POSTGRES_DB: WongaAssessmentDb
     ports:
       - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
 
   api:
     build:
       context: .
-      dockerfile: WongaAssessment.API/Dockerfile
-    container_name: wonga-api
+      dockerfile: WongaAssessment.API/WongaAssessment.API/Dockerfile
+    container_name: wongaassessment-api
     depends_on:
       - postgres
-    environment:
-      ConnectionStrings__DefaultConnection: "Host=postgres;Port=5432;Database=WongaAssessmentDb;Username=postgres;Password=postgres"
     ports:
       - "8080:80"
-
-volumes:
-  postgres_data:
