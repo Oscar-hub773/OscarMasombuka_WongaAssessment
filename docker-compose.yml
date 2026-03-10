@@ -16,5 +16,6 @@ services:
     container_name: wongaassessment-api
     depends_on:
       - postgres
+    restart: always
     ports:
       - "8080:80"
