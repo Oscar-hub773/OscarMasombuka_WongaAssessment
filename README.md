@@ -1,8 +1,8 @@
-# Wonga Intermediate Developer Assessment [2026-03-04]
+# Wonga Intermediate Software Engineer Assessment [2026-03-04]
 
 ## Overview
 
-This project implements a full-stack authentication system as part of the Wonga Intermediate Developer Assessment.
+This project implements a full-stack authentication system as part of the Wonga Intermediate Software Engineer Assessment.
 
 The application allows users to:
 
